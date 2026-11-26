@@ -1,0 +1,275 @@
+<main id="main">
+
+<section class="bed hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 id="hero-title">Turn 3D models into laser&#8209;cut parts.</h1>
+      <div>
+        <p class="lede">LayerCut slices STL and OBJ files into stacked layers, interlocking slices or flat-panel boxes, packs the pieces onto your sheet, and exports LightBurn files that are ready to cut.</p>
+        <div class="actions">
+          <a class="btn btn-primary" data-dl-auto href="/#download">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-dl-label>Download for Mac</span>
+          </a>
+          <a class="btn btn-quiet" href="/docs/">Read the docs</a>
+        </div>
+        <p class="small">Free during the beta. For macOS 11 or later and Windows 10 and 11. Works offline.</p>
+      </div>
+    </div>
+    <figure class="hs" id="hero-show" aria-label="How LayerCut turns a 3D model into cut parts" data-step="0">
+      <div class="hs-bar" aria-hidden="true">
+        <span class="hs-file">organizer.stl</span>
+        <span class="hs-stat" data-for="0">170 × 110 × 70 mm</span>
+        <span class="hs-stat" data-for="1">Panels: 5 pieces, 4 living hinges</span>
+        <span class="hs-stat" data-for="2">1 sheet, 545 × 195 mm, 3 mm birch</span>
+        <span class="hs-stat" data-for="3">Opened in LightBurn: Score and Cut layers set</span>
+      </div>
+      <div class="hs-stage">
+        <img class="hs-slide" data-for="0" src="/img/hero-model.webp" srcset="/img/hero-model-900.webp 900w, /img/hero-model.webp 1600w" sizes="(max-width: 900px) 92vw, 1100px" width="1600" height="996" alt="A desk organizer with rounded corners, as a 3D model">
+        <img class="hs-slide" data-for="1" src="/img/hero-panels.webp" srcset="/img/hero-panels-900.webp 900w, /img/hero-panels.webp 1600w" sizes="(max-width: 900px) 92vw, 1100px" width="1600" height="996" alt="The same organizer rebuilt from five plywood panels with finger joints, slots and a living-hinge wall" loading="eager">
+        <img class="hs-slide" data-for="3" src="/img/hero-lightburn.webp" srcset="/img/hero-lightburn-900.webp 900w, /img/hero-lightburn.webp 1389w" sizes="(max-width: 900px) 92vw, 1100px" width="1389" height="764" alt="The exported organizer.lbrn2 open in LightBurn, with the five panels on a Score layer and a Cut layer" loading="lazy">
+        <div class="hs-slide hs-sheetwrap" data-for="2">
+          <!--HERO_SHEET-->
+        </div>
+      </div>
+      <ol class="hs-steps">
+        <li><button type="button" data-go="0"><span class="hs-n">1</span>Open a model</button></li>
+        <li><button type="button" data-go="1"><span class="hs-n">2</span>Build it from panels</button></li>
+        <li><button type="button" data-go="2"><span class="hs-n">3</span>Nest the sheet</button></li>
+        <li><button type="button" data-go="3"><span class="hs-n">4</span>Open in LightBurn</button></li>
+      </ol>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="modes" aria-labelledby="modes-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="modes-title">Three ways to build a model</h2>
+      <p>Choose how the piece goes together. LayerCut works out every slot, joint, pin hole and label, and shows you the finished piece in 3D before you cut anything.</p>
+    </div>
+
+    <article class="mode">
+      <div class="mode-text">
+        <h3>Stacked</h3>
+        <p class="what">Parallel layers glued flat, like a contour map. The classic way to build busts, terrain, bowls and signs.</p>
+        <ul>
+          <li>Alignment pin holes placed where every pair of layers can share them</li>
+          <li>Each layer engraved with its number and a guide showing where the next one sits</li>
+          <li>Hollow mode turns layers into rings, with a solid floor or lid if you want one</li>
+          <li>Slice at the middle, bottom or top of each layer</li>
+        </ul>
+        <p class="best"><a href="/docs/stacked/">How stacked mode works</a></p>
+      </div>
+      <div class="media">
+        <figure class="shot"><img src="/img/stacked-3d-view.webp" width="1600" height="1156" alt="LayerCut showing a terrain model built from 27 stacked plywood layers with alignment pins" loading="lazy"></figure>
+      </div>
+    </article>
+
+    <article class="mode">
+      <div class="mode-text">
+        <h3>Interlocking</h3>
+        <p class="what">Crossing slices that slot together without glue. Uses a fraction of the material of a stacked build.</p>
+        <ul>
+          <li><b>Grid:</b> two sets of slices at right angles, like an egg crate</li>
+          <li><b>Radial:</b> spokes around the center held by rings, for vases, pots and lamps</li>
+          <li><b>Hollow shell:</b> rings become bands and spokes become ribs inside the wall</li>
+          <li>Each slot is engraved with the name of the slice that goes into it</li>
+          <li>Slots that can't slide together, thin bridges and split pieces are flagged before you cut</li>
+        </ul>
+        <p class="best"><a href="/docs/interlocking/">Grid</a> and <a href="/docs/radial/">radial</a> in the docs</p>
+      </div>
+      <div class="media">
+        <div class="tabs" role="tablist" aria-label="Interlocking pattern">
+          <button role="tab" id="tab-grid" aria-controls="panel-grid" aria-selected="true">Grid</button>
+          <button role="tab" id="tab-radial" aria-controls="panel-radial" aria-selected="false" tabindex="-1">Radial</button>
+          <button role="tab" id="tab-shell" aria-controls="panel-shell" aria-selected="false" tabindex="-1">Hollow shell</button>
+        </div>
+        <div class="tab-panel" id="panel-grid" role="tabpanel" aria-labelledby="tab-grid">
+          <figure class="shot"><img src="/img/interlock-grid-view.webp" width="1600" height="1156" alt="A vase built from a grid of interlocking slices" loading="lazy"></figure>
+        </div>
+        <div class="tab-panel" id="panel-radial" role="tabpanel" aria-labelledby="tab-radial" hidden>
+          <figure class="shot"><img src="/img/interlock-radial-view.webp" width="1600" height="1156" alt="The same vase built from eight radial spokes and four rings" loading="lazy"></figure>
+        </div>
+        <div class="tab-panel" id="panel-shell" role="tabpanel" aria-labelledby="tab-shell" hidden>
+          <figure class="shot"><img src="/img/radial-hollow-view.webp" width="1600" height="1156" alt="The vase as an open radial shell: thin ribs held by narrow bands, with a solid floor" loading="lazy"></figure>
+        </div>
+      </div>
+    </article>
+
+    <article class="mode">
+      <div class="mode-text">
+        <h3>Panels</h3>
+        <p class="what">For boxes, trays and desk organizers. Each wall of the model becomes a flat panel, and the joints are added for you.</p>
+        <ul>
+          <li>Finger joints at outside corners, tabs and slots where dividers meet a wall</li>
+          <li>Half-lap slots where two dividers cross</li>
+          <li>Living hinges where a wall curves round a corner</li>
+          <li>Angled joints for ramps and sloped walls</li>
+          <li>Keep outer size makes the finished piece exactly the model's size</li>
+        </ul>
+        <p class="best"><a href="/docs/panels/">How panels mode works</a></p>
+      </div>
+      <div class="media shot-pair">
+        <figure class="shot"><img src="/img/panels-3d-view.webp" width="1600" height="1156" alt="A desk organizer with rounded corners built from five plywood panels with finger joints" loading="lazy"></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="sheets-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="sheets-title">Cut sheets ready for the laser</h2>
+      <p>Switch to the Sheets view to see every sheet full size on a laser bed. Hover a piece to see its name; click it to find it in the 3D model.</p>
+    </div>
+    <div class="sheet-grid">
+      <figure class="shot"><img src="/img/stacked-sheets-view.webp" width="1600" height="1156" alt="The Sheets view: terrain layers nested tightly on a plywood sheet, with red cut lines and blue engraved numbers" loading="lazy"></figure>
+      <dl class="facts">
+        <div><dt>True-shape nesting</dt><dd>Pieces are packed by their real outlines, and small parts go inside the holes of bigger ones. You see how much of each sheet is used.</dd></div>
+        <div><dt>Kerf compensation</dt><dd>Outlines grow and holes shrink by half your kerf, so parts come out the size you designed.</dd></div>
+        <div><dt>Native LightBurn files</dt><dd>One .lbrn2 project per sheet, with cut and engrave on separate layers and your speeds and powers already set.</dd></div>
+        <div><dt>Exact SVG</dt><dd>Millimeter-sized SVGs that import at true size in LightBurn, Inkscape and Illustrator.</dd></div>
+        <div><dt>Assembly guide</dt><dd>A text guide lists every piece in build order, with pin lengths and which slot goes where.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="hinge-title">
+  <div class="wrap">
+    <div class="hinge">
+      <h2 id="hinge-title">Rounded corners, one piece of wood</h2>
+      <div>
+        <p style="font-size:19px;color:var(--ink-soft)">When a wall curves round a corner, LayerCut cuts it and the flat walls on either side as one long strip, with rows of slits across each curve so the sheet bends.</p>
+        <p style="color:var(--ink-soft)">The base gets finger joints that follow the curve, dividers slot into the strip, and a wall that goes all the way round is closed with dovetail keys. <a href="/docs/living-hinges/">Living hinges in the docs</a></p>
+      </div>
+    </div>
+    <figure class="hinge-fig"><div class="hinge-svg-wrap" tabindex="0" role="region" aria-label="Wall strip, scroll sideways"><!--HINGE_SHEET--></div><figcaption class="shot-cap">The wall strip of the organizer above, 526 mm long. Each band of slits bends round one corner.</figcaption></figure>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="how-title">From model to cut file in four steps</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Open a model</h3><p>Drop an STL or OBJ file on the window. Set the size by scale or by finished height.</p></li>
+      <li><h3>Pick your material</h3><p>Choose a saved material with its thickness, kerf and laser settings, measured once with the fit test.</p></li>
+      <li><h3>Choose how it's built</h3><p>Stacked, interlocking or panels. Check the 3D preview and the notes on anything that won't work.</p></li>
+      <li><h3>Export and cut</h3><p>Save LightBurn and SVG files plus an assembly guide. Open them in LightBurn and start the job.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="fit-title">
+  <div class="wrap fit">
+    <div>
+      <h2 id="fit-title">Measure once, fit every time</h2>
+      <p style="margin-top:16px;font-size:19px;color:var(--ink-soft)">Every laser, lens and sheet of plywood is a little different. Cut the 156 × 75 mm fit test once per material and LayerCut tells you exactly what to enter.</p>
+      <ul style="padding-left:20px;color:var(--ink-soft)">
+        <li>A 20 mm square to measure your true kerf</li>
+        <li>A slot comb from −0.10 to +0.20 mm for interlocking fits</li>
+        <li>A pin plate to pick the right dowel hole</li>
+      </ul>
+      <p>Save the results as a material, like “Birch 3 mm on the K40”, and every export uses them.</p>
+      <p><a href="/docs/fit-test/">Cutting the fit test</a></p>
+    </div>
+    <div class="ply-card"><img src="/img/fit-test.webp" width="1600" height="769" alt="The fit test sheet: kerf square and frame, a slot comb with labeled clearances, a key strip and a pin hole plate" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="section alt" id="pricing" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="pricing-title">Pricing</h2>
+      <p>Start free. Buy Pro once and keep it. No subscription, no account, no internet connection needed.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <p class="price">$0</p>
+        <p class="terms">Free forever, for personal and commercial work.</p>
+        <ul>
+          <li>Stacked mode, including hollow layers and pins</li>
+          <li>Interlocking grid and radial, including hollow shells</li>
+          <li>Preview panels and living hinges in 3D and on the sheets</li>
+          <li>SVG export</li>
+          <li>Materials, fit test and true-shape nesting</li>
+        </ul>
+        <a class="btn btn-quiet" href="/#download">Download</a>
+      </div>
+      <div class="plan pro">
+        <h3>Pro</h3>
+        <p class="price">$59 <small>one-time</small></p>
+        <p class="terms">Includes 12 months of updates. Renew updates for $25 a year, whenever you like.</p>
+        <ul>
+          <li class="inherit">Everything in Free</li>
+          <li>Export panels: finger joints, tabs, half-laps and angled joints</li>
+          <li>Export living hinges and closed-loop walls with dovetail keys</li>
+          <li>Native LightBurn .lbrn2 export with your cut and engrave settings</li>
+        </ul>
+        <a class="btn btn-primary" aria-disabled="true">Available with version 1.0</a>
+      </div>
+    </div>
+    <p class="beta-note"><b>During the beta, everything is free.</b> Every feature, Pro included, is unlocked until version 1.0. Your Pro license keeps working forever on every version released within its update year. <a href="/docs/editions/">How licenses work</a></p>
+  </div>
+</section>
+
+<section class="bed download" id="download" aria-labelledby="download-title">
+  <div class="wrap">
+    <div>
+      <h2 id="download-title">Download LayerCut</h2>
+      <p class="lede">One app for both editions. Pro unlocks with a license key, with no reinstall.</p>
+      <div class="dl-list">
+        <a class="dl" data-os="mac" href="https://downloads.layercut.app/latest/LayerCut-mac.dmg">
+          <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="5" y="6" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 21h22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <div><b>macOS</b><span>Universal: Apple silicon and Intel, macOS 11 or later</span></div>
+          <span class="go">.dmg</span>
+        </a>
+        <a class="dl" data-os="windows" href="https://downloads.layercut.app/latest/LayerCut-windows-setup.exe">
+          <svg viewBox="0 0 28 28" aria-hidden="true"><rect x="4" y="5" width="20" height="15" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 24h6M14 20v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <div><b>Windows</b><span>Windows 10 and 11, 64-bit</span></div>
+          <span class="go">.exe</span>
+        </a>
+      </div>
+      <p class="dl-status" data-dl-status aria-live="polite"></p>
+    </div>
+    <div class="req">
+      <h3>What you need</h3>
+      <ul>
+        <li>A Mac with macOS 11 Big Sur or later, or a PC with 64-bit Windows 10 or 11</li>
+        <li>4 GB of memory; 8 GB for large, detailed models</li>
+        <li>Under 100 MB of disk space</li>
+        <li>Models as STL or OBJ files, in millimeters</li>
+        <li>LightBurn for .lbrn2 files, or any program that opens SVG</li>
+      </ul>
+      <h3>Installing</h3>
+      <ul>
+        <li><b>Mac:</b> open the .dmg and drag LayerCut to Applications.</li>
+        <li><b>Windows:</b> run the setup file. It installs for your user account and doesn't need an administrator. If Windows shows “Windows protected your PC” for a new release, click <b>More info</b>, then <b>Run anyway</b>.</li>
+        <li>LayerCut checks for updates when it starts and asks before installing one.</li>
+      </ul>
+      <p><a href="/docs/getting-started/">Install and first cut</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="section-head"><h2 id="faq-title">Questions</h2></div>
+    <div class="faq">
+      <details><summary>Which lasers does LayerCut work with?</summary><div><p>Any laser that LightBurn drives, or any software that imports SVG. LayerCut writes the files; your usual laser software runs the machine. It's been designed around diode and CO₂ lasers cutting plywood, MDF and acrylic.</p></div></details>
+      <details><summary>Do I need LightBurn?</summary><div><p>No. Every edition exports millimeter-exact SVG, which works with LightBurn, Inkscape, xTool Creative Space, Glowforge and others. Pro adds native .lbrn2 projects with your cut and engrave layers already set up.</p></div></details>
+      <details><summary>Where do I get 3D models?</summary><div><p>Anything that exports STL or OBJ: Fusion, Onshape, Tinkercad, Blender, SketchUp, or a model library. Panels mode works best on models designed with thin, flat walls, such as boxes and organizers.</p></div></details>
+      <details><summary>Does LayerCut need an internet connection or an account?</summary><div><p>No. It runs entirely on your computer and your models never leave it. It only goes online to check for updates, and a Pro license key is checked offline.</p></div></details>
+      <details><summary>Can I sell what I make with it?</summary><div><p>Yes, with either edition. Check the license of the 3D model you start from, since that's set by its designer.</p></div></details>
+      <details><summary>What happens when my year of updates ends?</summary><div><p>Pro keeps working on every version released during your update year, forever. Newer versions run as the free edition until you renew, or you can keep using the last version you're covered for. <a href="/docs/editions/">More about licenses</a></p></div></details>
+      <details><summary>What's coming next?</summary><div><p>Signed installers and automatic updates first, then living hinge settings, angled grid slices, common-line cutting and more. See the <a href="/roadmap/">roadmap</a>.</p></div></details>
+      <details><summary>Can I use one license on my desktop and my laptop?</summary><div><p>Yes. A license is for one person, on any computers they use.</p></div></details>
+    </div>
+  </div>
+</section>
+
+</main>

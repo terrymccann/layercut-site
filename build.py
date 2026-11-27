@@ -104,6 +104,7 @@ FOOTER = f"""<footer class="site-foot">
         <li><a href="/#modes">Features</a></li>
         <li><a href="/#pricing">Pricing</a></li>
         <li><a href="/roadmap/">Roadmap</a></li>
+        <li><a href="/changelog/">Changelog</a></li>
         <li><a href="/#download">Download</a></li>
         <li><a href="/docs/editions/">Free and Pro</a></li>
       </ul>
@@ -251,6 +252,19 @@ def build():
 """ + FOOTER)
     write("/roadmap/", page)
     pages.append("/roadmap/")
+
+    # changelog
+    meta, body = front((SRC / "changelog.md").read_text())
+    page = (head("Changelog — LayerCut", meta["description"], "/changelog/")
+            + header("") + f"""<main id="main" class="wrap page-legal page-changelog"><article class="prose">
+<h1>{meta['title']}</h1>
+<p class="intro">{meta['intro']}</p>
+{md(body)}
+<p class="updated">Last updated {meta.get('updated', TODAY.isoformat())}.</p>
+</article></main>
+""" + FOOTER)
+    write("/changelog/", page)
+    pages.append("/changelog/")
 
     # 404
     (DIST / "404.html").write_text(head("Page not found — LayerCut", "Page not found", "/404") + header("") +

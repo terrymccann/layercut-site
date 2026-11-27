@@ -7,6 +7,7 @@ src/home.html        home page body
 src/docs/*.md        documentation, one Markdown file per page (order is set in build.py)
 src/legal/*.md       terms, privacy, refunds, license keys
 src/roadmap.md       the roadmap page
+src/changelog.md     the changelog page
 src/*.svg            the cut-sheet drawings used on the home page
 assets/              site.css, site.js, fonts (Archivo, SIL Open Font License)
 img/                 screenshots, icons, social image

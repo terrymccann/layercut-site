@@ -84,6 +84,27 @@
       .then((v) => {
         document.querySelectorAll("[data-version]").forEach((el) => (el.textContent = `Version ${v.version}`));
         if (status) status.textContent = `Version ${v.version}, released ${new Date(v.date + "T12:00:00").toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}.`;
+        // the Windows version isn't out yet: say so instead of offering a link that 404s
+        if (v.windows === false) {
+          dlLinks.forEach((a) => {
+            if (a.dataset.os !== "windows") return;
+            a.setAttribute("aria-disabled", "true");
+            a.removeAttribute("href");
+            a.classList.remove("primary");
+            const go = a.querySelector(".go");
+            if (go) go.textContent = "Soon";
+          });
+          if (isWin) {
+            document.querySelectorAll("[data-dl-auto]").forEach((a) => {
+              a.href = "/#download";
+              const label = a.querySelector("[data-dl-label]");
+              if (label) label.textContent = "Windows version coming soon";
+            });
+            const other = document.querySelector("[data-dl-other]");
+            if (other) other.textContent = "Available now on Mac";
+          }
+          if (status) status.textContent += " The Windows version is coming soon.";
+        }
       })
       .catch(() => {
         // nothing released yet: say so instead of offering links that 404
